@@ -24,7 +24,7 @@ class Pedido:
         init=False, server_default=func.now()
     )
     total: Mapped[float] = mapped_column(nullable=False, default=0.0)
-    itens: Mapped[list["ItemPedido"]] = relationship(
+    itens: Mapped[list["ItemPedido"]] = relationship( # type: ignore
         "ItemPedido",
         back_populates="pedido",
         cascade="all, delete-orphan",
